@@ -6,21 +6,9 @@ export default class leftPanelController {
     	this.openLeftMenu = false;
     	this.showOpenPanelBtn = true;
 
+        this.layers = ['Data Centers', 'vCenters', 'Clusters', 'Hosts', 'Virtual Machines']
 
         this.toggleLeftPanel = this.buildToggler();
-
-        // function buildToggler(componentId) {
-        // 	this.showOpenPanelBtn = option === 'close' ? true : false;
-        //     return function() {
-        //         $mdSidenav(componentId).toggle();
-        //     };
-        // }
-
-
-        // $scope.toggle = angular.noop;
-        // $scope.isOpen = function() {
-        //     return false;
-        // };
     }
 
     buildToggler() {
@@ -32,16 +20,4 @@ export default class leftPanelController {
     onLeftPanelToggle(option) {
     	this.showOpenPanelBtn = option === 'close' ? true : false;
     }
-
-    // toggleLeftPanel() {
-    // 	// this.showOpenPanelBtn = option === 'close' ? true : false;
-    // 	return function() {
-    // 		this._$mdSidenav('left').toggle();
-    // 	}
-    // 	// function buildToggler(componentId) {
-    //  //        return function() {
-    //  //            $mdSidenav('left').toggle();
-    //  //        };
-    //  //    }
-    // }
 }

@@ -50,18 +50,18 @@
                 <v-accordion flex class="vAccordion--default" multiple>
                     <v-pane>
                         <v-pane-header>
-                            Menu
+                            Layers
                         </v-pane-header>
                         <v-pane-content>
                             <md-list no-close-quote>
-                                <md-list-item>
+                                <md-list-item ng-repeat="layer in $ctrl.layers track by $index">
                                     <div layout-fill>
-                                        <md-button ng-disabled="false" layout-fill layout="row" class="md-primary" ng-click="">
-                                            <div flex="80" class="layout-align-start-center layout-row">Digital schematics</div>
+                                        <md-button ng-disabled="$index !== 0" layout-fill layout="row" class="md-primary" ng-click="">
+                                            <div flex="80" class="layout-align-start-center layout-row" ng-bind="layer"></div>
                                         </md-button>
                                     </div>
                                 </md-list-item>
-                                <md-list>
+                            <md-list>
                         </v-pane-content>
                     </v-pane>
                 </v-accordion>

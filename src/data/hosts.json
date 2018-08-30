@@ -1,0 +1,316 @@
+{
+    "hosts": [
+    {
+        "DC1_C1_Host": [
+        {
+            "hostname": "DC1_VC1_host1",
+            "ip": "1.1.1.11",
+            "diskUsed": "152.87",
+            "numGuests": "2",
+            "cpuTotalUtil": "15.51",
+            "numCPUCore": "40",
+            "memAvailable": "",
+            "memUsage": "",
+            "capacity": "1024"
+        },
+        {
+            "hostname": "DC1_VC1_host2",
+            "ip": "1.1.1.12",
+            "diskUsed": "152.87",
+            "numGuests": "2",
+            "cpuTotalUtil": "15.51",
+            "numCPUCore": "40",
+            "memAvailable": "",
+            "memUsage": "",
+            "capacity": "1024"
+        },
+        {
+            "hostname": "DC1_VC1_host3",
+            "ip": "1.1.1.13",
+            "diskUsed": "152.87",
+            "numGuests": "2",
+            "cpuTotalUtil": "15.51",
+            "numCPUCore": "40",
+            "memAvailable": "",
+            "memUsage": "",
+            "capacity": "1024"
+        },
+        {
+            "hostname": "DC1_VC1_host4",
+            "ip": "1.1.1.14",
+            "diskUsed": "152.87",
+            "numGuests": "1",
+            "cpuTotalUtil": "15.51",
+            "numCPUCore": "40",
+            "memAvailable": "",
+            "memUsage": "",
+            "capacity": "1024"
+        }],
+        "DC1_C2_Host": [
+        {
+            "hostname": "DC1_VC2_host1",
+            "ip": "1.2.1.15",
+            "diskUsed": "152.87",
+            "numGuests": "2",
+            "cpuTotalUtil": "15.51",
+            "numCPUCore": "40",
+            "memAvailable": "",
+            "memUsage": "",
+            "capacity": "1024"
+        },
+        {
+            "hostname": "DC1_VC2_host2",
+            "ip": "1.2.1.16",
+            "diskUsed": "152.87",
+            "numGuests": "2",
+            "cpuTotalUtil": "15.51",
+            "numCPUCore": "40",
+            "memAvailable": "",
+            "memUsage": "",
+            "capacity": "1024"
+        },
+        {
+            "hostname": "DC1_VC2_host3",
+            "ip": "1.2.1.17",
+            "diskUsed": "152.87",
+            "numGuests": "2",
+            "cpuTotalUtil": "15.51",
+            "numCPUCore": "40",
+            "memAvailable": "",
+            "memUsage": "",
+            "capacity": "1024"
+        }],
+        "DC1_C3_Host": [
+        {
+            "hostname": "DC1_VC3_host1",
+            "ip": "1.3.1.18",
+            "diskUsed": "152.87",
+            "numGuests": "2",
+            "cpuTotalUtil": "15.51",
+            "numCPUCore": "40",
+            "memAvailable": "",
+            "memUsage": "",
+            "capacity": "1024"
+        },
+        {
+            "hostname": "DC1_VC3_host2",
+            "ip": "1.3.1.19",
+            "diskUsed": "152.87",
+            "numGuests": "2",
+            "cpuTotalUtil": "15.51",
+            "numCPUCore": "40",
+            "memAvailable": "",
+            "memUsage": "",
+            "capacity": "1024"
+        }],
+        "DC1_C4_Host": [
+        {
+            "hostname": "DC1_VC4_host1",
+            "ip": "1.4.1.10 ",
+            "diskUsed": "152.87",
+            "numGuests": "2",
+            "cpuTotalUtil": "15.51",
+            "numCPUCore": "40",
+            "memAvailable": "",
+            "memUsage": "",
+            "capacity": "1024"
+        }],
+        "DC2_C1_Host": [
+        {
+            "hostname": "DC2_VC1_host1",
+            "ip": "2.1.1.21 ",
+            "diskUsed": "152.87",
+            "numGuests": "2",
+            "cpuTotalUtil": "15.51",
+            "numCPUCore": "40",
+            "memAvailable": "",
+            "memUsage": "",
+            "capacity": "1024"
+        },
+        {
+            "hostname": "DC2_VC1_host2",
+            "ip": "2.1.1.22 ",
+            "diskUsed": "152.87",
+            "numGuests": "2",
+            "cpuTotalUtil": "15.51",
+            "numCPUCore": "40",
+            "memAvailable": "",
+            "memUsage": "",
+            "capacity": "1024"
+        },
+        {
+            "hostname": "DC2_VC1_host3",
+            "ip": "2.1.1.23 ",
+            "diskUsed": "152.87",
+            "numGuests": "2",
+            "cpuTotalUtil": "15.51",
+            "numCPUCore": "40",
+            "memAvailable": "",
+            "memUsage": "",
+            "capacity": "1024"
+        },
+        {
+            "hostname": "DC2_VC1_host4",
+            "ip": "2.1.1.24 ",
+            "diskUsed": "152.87",
+            "numGuests": "2",
+            "cpuTotalUtil": "15.51",
+            "numCPUCore": "40",
+            "memAvailable": "",
+            "memUsage": "",
+            "capacity": "1024"
+        }],
+
+        "DC2_C2_Host": [
+        {
+            "hostname": "DC2_VC2_host1",
+            "ip": "2.2.1.25 ",
+            "diskUsed": "152.87",
+            "numGuests": "2",
+            "cpuTotalUtil": "15.51",
+            "numCPUCore": "40",
+            "memAvailable": "",
+            "memUsage": "",
+            "capacity": "1024"
+        },
+        {
+            "hostname": "DC2_VC2_host2",
+            "ip": "2.2.1.26 ",
+            "diskUsed": "152.87",
+            "numGuests": "2",
+            "cpuTotalUtil": "15.51",
+            "numCPUCore": "40",
+            "memAvailable": "",
+            "memUsage": "",
+            "capacity": "1024"
+        },
+        {
+            "hostname": "DC2_VC2_host3",
+            "ip": "2.2.1.27 ",
+            "diskUsed": "152.87",
+            "numGuests": "2",
+            "cpuTotalUtil": "15.51",
+            "numCPUCore": "40",
+            "memAvailable": "",
+            "memUsage": "",
+            "capacity": "1024"
+        }],
+
+        "DC2_C3_Host": [
+        {
+            "hostname": "DC2_VC3_host1",
+            "ip": "2.3.1.28 ",
+            "diskUsed": "152.87",
+            "numGuests": "2",
+            "cpuTotalUtil": "15.51",
+            "numCPUCore": "40",
+            "memAvailable": "",
+            "memUsage": "",
+            "capacity": "1024"
+        },
+        {
+            "hostname": "DC2_VC3_host2",
+            "ip": "2.3.1.29 ",
+            "diskUsed": "152.87",
+            "numGuests": "2",
+            "cpuTotalUtil": "15.51",
+            "numCPUCore": "40",
+            "memAvailable": "",
+            "memUsage": "",
+            "capacity": "1024"
+        }],
+
+        "DC3_C1_Host": [
+        {
+            "hostname": "DC3_VC1_host1",
+            "ip": "3.1.1.31 ",
+            "diskUsed": "152.87",
+            "numGuests": "2",
+            "cpuTotalUtil": "15.51",
+            "numCPUCore": "40",
+            "memAvailable": "",
+            "memUsage": "",
+            "capacity": "1024"
+        },
+        {
+            "hostname": "DC3_VC1_host2",
+            "ip": "3.1.1.32 ",
+            "diskUsed": "152.87",
+            "numGuests": "2",
+            "cpuTotalUtil": "15.51",
+            "numCPUCore": "40",
+            "memAvailable": "",
+            "memUsage": "",
+            "capacity": "1024"
+        },
+        {
+            "hostname": "DC3_VC1_host3",
+            "ip": "3.1.1.33 ",
+            "diskUsed": "152.87",
+            "numGuests": "2",
+            "cpuTotalUtil": "15.51",
+            "numCPUCore": "40",
+            "memAvailable": "",
+            "memUsage": "",
+            "capacity": "1024"
+        }],
+
+        "DC4_C1_Host": [
+        {
+            "hostname": "DC4_VC1_host1",
+            "ip": "4.1.1.41 ",
+            "diskUsed": "152.87",
+            "numGuests": "2",
+            "cpuTotalUtil": "15.51",
+            "numCPUCore": "40",
+            "memAvailable": "",
+            "memUsage": "",
+            "capacity": "1024"
+        },
+        {
+            "hostname": "DC4_VC1_host2",
+            "ip": "4.1.1.42 ",
+            "diskUsed": "152.87",
+            "numGuests": "2",
+            "cpuTotalUtil": "15.51",
+            "numCPUCore": "40",
+            "memAvailable": "",
+            "memUsage": "",
+            "capacity": "1024"
+        },
+        {
+            "hostname": "DC4_VC1_host3",
+            "ip": "4.1.1.43 ",
+            "diskUsed": "152.87",
+            "numGuests": "2",
+            "cpuTotalUtil": "15.51",
+            "numCPUCore": "40",
+            "memAvailable": "",
+            "memUsage": "",
+            "capacity": "1024"
+        }],
+        "DC4_C2_Host": [
+        {
+            "hostname": "DC4_VC2_host1",
+            "ip": "4.2.1.44 ",
+            "diskUsed": "152.87",
+            "numGuests": "2",
+            "cpuTotalUtil": "15.51",
+            "numCPUCore": "40",
+            "memAvailable": "",
+            "memUsage": "",
+            "capacity": "1024"
+        },
+        {
+            "hostname": "DC4_VC2_host2",
+            "ip": "4.2.1.45 ",
+            "diskUsed": "152.87",
+            "numGuests": "2",
+            "cpuTotalUtil": "15.51",
+            "numCPUCore": "40",
+            "memAvailable": "",
+            "memUsage": "",
+            "capacity": "1024"
+        }]
+    }]
+}

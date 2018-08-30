@@ -1,0 +1,32 @@
+{
+    "dataCenters": [
+        {
+            "name": "DC1",
+            "latitude": "12.83",
+            "longitude": "77.68",
+            "numOfVcenter": "4",
+            "position": "5-1"
+        },
+        {
+            "name": "DC2",
+            "latitude": "33.72",
+            "longitude": "-82.68",
+            "numOfVcenter": "3",
+            "position": "5-2"
+        },
+        {
+            "name": "DC3",
+            "latitude": "35.883195",
+            "longitude": "104.166971",
+            "numOfVcenter": "1",
+            "position": "5-3"
+        },
+        {
+            "name": "DC4",
+            "latitude": "",
+            "longitude": "",
+            "numOfVcenter": "2",
+            "position": "5-4"
+        }
+    ]
+}
