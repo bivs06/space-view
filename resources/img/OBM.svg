@@ -1,0 +1,6 @@
+<svg fill="#ffffff" xmlns="http://www.w3.org/2000/svg" width="28" height="48" viewBox="0 0 28 50" ng-if="::!$ctrl.appLogoUrl" class="ng-scope">
+<path d="M26,15H6v2h.47A26,26,0,0,1,11,31v1h2V31A28.32,28.32,0,0,0,8.88,17H23.14A31.69,31.69,0,0,0,19,31v1h2V31a29.31,29.31,0,0,1,4.52-14H26Z"></path>
+<rect x="15" width="2" height="4"></rect>
+<rect x="12" y="5" width="8" height="2"></rect>
+<polygon points="11.72 14 10.39 10 21.61 10 20.28 14 22.39 14 24.39 8 7.61 8 9.61 14 11.72 14"></polygon>
+</svg>

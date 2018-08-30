@@ -1,0 +1,65 @@
+.left-panel {
+	.left-toggle-button {
+		z-index: 65;
+		width: 36px;
+	    margin: 0px;
+	    padding: 0px;
+	    height: 36px;
+	    min-width: 0px;
+	    background-color: #dd4844;
+	}
+
+	.left-toggle-button.md-button:not([disabled]).md-focused, .left-toggle-button.md-button:not([disabled]):hover {
+		background-color: #dd4844;
+	}
+
+	.md-button:not([disabled]):hover {
+		background-color: transparent;
+	}
+
+	space-view-header md-toolbar{
+		min-height: 0px;
+		height: 48px!important;
+
+		.md-toolbar-tools {
+			padding-right: 48px;
+		}
+	}
+
+	.left-panel-close-btn {
+		float: right;
+	    min-width: 0px;
+	    width: 36px;
+	    min-height: 0px;
+	    height: 48px;
+	    position: absolute;
+	    top: 0px;
+	    right: 0px;
+	    z-index: 70;
+
+	    md-icon {
+	    	min-width: 0px;
+		    min-height: 0px;
+		    width: auto;
+		    height: auto;
+		    fill: white;
+	    }
+	}
+
+	.vAccordion--default v-pane-header {
+		padding: 9px 16px;
+		margin-bottom: 0px;
+	}
+
+	.vAccordion--default v-pane-header::after, .vAccordion--default v-pane-header::before {
+		right: 16px;
+	}
+
+	md-list-item {
+		padding: 0px 11px;
+	}
+
+	.vAccordion--default v-pane-content > div {
+		padding-bottom: 0px;
+	}
+}

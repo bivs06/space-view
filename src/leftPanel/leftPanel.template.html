@@ -1,0 +1,72 @@
+<div class="left-panel">
+    <!-- BEGIN LEFT MENU TOGGLE -->
+    <md-button ng-if="$ctrl.showOpenPanelBtn" class="left-toggle-button" ng-click="$ctrl.toggleLeftPanel(); $ctrl.onLeftPanelToggle('open')">
+        <md-icon class="material-icons" md-svg-src="../../resources/img/right-24px.svg">Open Panel</md-icon>
+        <md-tooltip md-direction="bottom">Open Panel</md-tooltip>
+    </md-button>
+    <!-- END LEFT MENU TOGGLE -->
+    <!-- BEGIN LEFT NAVIGATION -->
+    <md-sidenav class="md-sidenav-left" md-whiteframe="4" md-component-id="left" md-disable-backdrop="" md-is-open="$ctrl.openLeftMenu">
+        <div ng-cloak>
+            <md-content>
+            	<space-view-header title="Aspects"></space-view-header>
+                <md-button ng-click="$ctrl.toggleLeftPanel(); $ctrl.onLeftPanelToggle('close')" aria-label="close" class="md-icon-button left-panel-close-btn">
+                    <md-icon class="material-icons" md-svg-src="../../resources/img/close-24px.svg">close</md-icon>
+                    <md-tooltip md-direction="bottom">close</md-tooltip>
+                </md-button>
+
+                <v-accordion class="vAccordion--default" multiple>
+                    <v-pane expanded>
+                        <v-pane-header>
+                            Perspectives
+                        </v-pane-header>
+                        <v-pane-content>
+                            <md-list no-close-quote>
+                                <md-list-item>
+                                    <div layout-fill>
+                                        <md-button layout-fill layout="row" class="md-primary" ng-click="">
+                                            <div flex="80" class="layout-align-start-center layout-row">Capacity</div>
+                                        </md-button>
+                                    </div>
+                                </md-list-item>
+                                <md-list-item>
+                                    <div layout-fill>
+                                        <md-button layout-fill layout="row" class="md-primary" ng-click="">
+                                            <div flex="80" class="layout-align-start-center layout-row">CPU Performance</div>
+                                        </md-button>
+                                    </div>
+                                </md-list-item>
+                                <md-list-item>
+                                    <div layout-fill>
+                                        <md-button layout-fill layout="row" class="md-primary" ng-click="">
+                                            <div flex="80" class="layout-align-start-center layout-row">Memory Utilization</div>
+                                        </md-button>
+                                    </div>
+                                </md-list-item>
+                            </md-list>
+                        </v-pane-content>
+                    </v-pane>
+                </v-accordion>
+                <v-accordion flex class="vAccordion--default" multiple>
+                    <v-pane>
+                        <v-pane-header>
+                            Menu
+                        </v-pane-header>
+                        <v-pane-content>
+                            <md-list no-close-quote>
+                                <md-list-item>
+                                    <div layout-fill>
+                                        <md-button ng-disabled="false" layout-fill layout="row" class="md-primary" ng-click="">
+                                            <div flex="80" class="layout-align-start-center layout-row">Digital schematics</div>
+                                        </md-button>
+                                    </div>
+                                </md-list-item>
+                                <md-list>
+                        </v-pane-content>
+                    </v-pane>
+                </v-accordion>
+            </md-content>
+        </div>
+    </md-sidenav>
+    <!-- END LEFT NAVIGATION -->
+</div>

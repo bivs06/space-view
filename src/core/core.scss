@@ -1,0 +1,13 @@
+.core {
+	#spaceViewMap {
+	    position: absolute;
+	    top: 0;
+	    bottom: 0;
+	    width: 100%;
+	}
+
+	md-content.main {
+	    overflow: hidden;
+	    min-height: calc(100vh - 64px);
+	}
+}
