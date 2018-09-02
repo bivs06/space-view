@@ -6,6 +6,8 @@ export default {
 	controller: coreController,
 	templateUrl: 'header.template.html',
 	bindings: {
-		title: '@?'
+		title: '@?',
+		showStatus: '<?',
+		objectCount: '@?'
 	}
 };

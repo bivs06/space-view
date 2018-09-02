@@ -1,11 +1,10 @@
 import 'angular';
-// import '../../resources/img/OBM.svg';
-import coreComponet from './header.component';
+import rightPanelComponet from './rightPanel.component';
 
-const MODULE_NAME = 'header',
+const MODULE_NAME = 'rightPanel',
 	appDependencies = [];
 
 angular.module(MODULE_NAME, appDependencies)
-	.component('spaceViewHeader', coreComponet);
+	.component('rightPanel', rightPanelComponet);
 
 export default MODULE_NAME;

@@ -1,4 +1,54 @@
-md-toolbar.md-hue-2._md._md-toolbar-transitions {
-	// background-color: #00ABF3;
-	height: 54px;
+.right-panel {
+	.right-panel-close-btn {
+		float: right;
+	    min-width: 0px;
+	    width: 36px;
+	    min-height: 0px;
+	    height: 48px;
+	    position: absolute;
+	    top: 0px;
+	    right: 0px;
+	    z-index: 70;
+
+	    md-icon {
+	    	min-width: 0px;
+		    min-height: 0px;
+		    width: auto;
+		    height: auto;
+		    fill: white;
+	    }
+	}
+
+	space-view-header md-toolbar{
+		min-height: 0px;
+		height: 48px!important;
+
+		.md-toolbar-tools {
+			padding-right: 48px;
+		}
+
+		.title {
+			font-size: 16px!important;
+    		padding: 16px!important;
+    		align-self: flex-start!important;
+		}
+	}
+
+	md-sidenav {
+		z-index: 75;
+		width: 500px;
+		max-width: 500px;
+	}
+
+	md-card {
+		width: 153px;
+		height: 130px;
+		margin-left: 16px;
+		margin-bottom: 0px;
+		margin-top: 16px;
+
+		md-card-title {
+			align-items: center;
+		}
+	}
 }

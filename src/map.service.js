@@ -1,21 +1,35 @@
+import { Map as DefaultMap, View} from 'ol';
+
 export default class mapService {
 	constructor() {
-
+		this._map = new Map();
 	}
 
-	getMap() {
-		return this._map;
+    createMap(target, center) {
+        return new DefaultMap({
+            target: target,
+            layers: [],
+            view: new View({
+                center: center,
+                zoom: 2.8,
+                minZoom: 2.63,
+            })
+        });
+    }
+
+	getMap(key) {
+		return this._map.get(key);
 	}
 
-	setMap(map) {
-		this._map = map;
+	setMap(map, key) {
+		this._map.set(key, map);
 	}
 
-	getLayers() {
+	getLayersList() {
 		return this._layers;
 	}
 
-	setLayers(layerName, layers) {
+	setLayersList(layerName, layers) {
 		this._layers = this._layers || new Map();
 		this._layers.set(layerName, layers)
 	}

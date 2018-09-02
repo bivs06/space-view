@@ -64,7 +64,8 @@
     "angular-animate": "1.6.5",
     "angular-aria": "^1.7.3",
     "angular-material": "^1.1.10",
-    "ol": "^5.2.0",
+    "ol": "^5.1.3",
+    "ol-ext": "^3.0.1",
     "v-accordion": "^1.6.0"
   }
 }

@@ -1,0 +1,64 @@
+.cluster-panel {
+	.cluster-panel-close-btn {
+		float: right;
+	    min-width: 0px;
+	    width: 36px;
+	    min-height: 0px;
+	    height: 64px;
+	    position: absolute;
+	    top: 0px;
+	    right: 0px;
+	    z-index: 70;
+
+	    md-icon {
+	    	min-width: 0px;
+		    min-height: 0px;
+		    width: auto;
+		    height: auto;
+		    fill: white;
+	    }
+	}
+
+	space-view-header md-toolbar {
+		.md-toolbar-tools {
+			padding-right: 48px;
+		}
+
+		.title {
+			font-size: 24px;
+    		padding: 18px;
+    		display: flex;
+    		align-self: center;
+		}
+	}
+
+	md-sidenav {
+		width: 100%;
+		max-width: none;
+	}
+
+	md-content.main {
+	    overflow: hidden;
+	    min-height: calc(100vh - 64px);
+	    display: flex;
+	}
+
+	.ol-zoom {
+		display: none;
+	}
+
+	#cluster_panel_left {
+	    top: 0;
+	    bottom: 0;
+	}
+
+	#cluster_panel_middle {
+	    top: 0;
+	    bottom: 0;
+	}
+
+	#cluster_panel_right {
+	    top: 0;
+	    bottom: 0;
+	}
+}

@@ -1,6 +1,6 @@
 .space-view-header {
 	md-toolbar.md-hue-2._md._md-toolbar-transitions {
-		// background-color: #00ABF3;
+		background-color: #3F51B5;
 		height: 54px;
 	}
 
@@ -8,5 +8,17 @@
 		font-size: 16px;
 	    padding: 16px;
 	    position: absolute;
+	}
+
+	.left {
+		border-bottom: solid 24px #2E7D32;
+	}
+	
+	.middle {
+		border-bottom: solid 24px #FFA726;
+	}
+	
+	.right {
+		border-bottom: solid 24px #D50000;
 	}
 }

@@ -1,7 +1,10 @@
 import 'angular';
 import 'angular-aria';
+import 'angular-animate';
 import 'angular-material';
 import 'v-accordion';
+import 'ol/ol.css';
+import 'ol-ext/dist/ol-ext.min.css';
 import 'v-accordion/dist/v-accordion.css';
 import 'angular-material/angular-material.css';
 import coreModule from './core/core.module';

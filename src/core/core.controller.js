@@ -1,66 +1,48 @@
-import {Map, View,} from 'ol';
 import TileLayer from 'ol/layer/Tile';
-import {XYZ, Stamen, BingMaps} from 'ol/source';
+import { BingMaps } from 'ol/source';
 
 export default class coreController {
-    constructor($http, mapService) {
-    	this._$http = $http;
-    	this._mapService = mapService;
+    constructor($http, mapService, layerManagerService) {
+        this._$http = $http;
+        this._mapService = mapService;
+        this._layerManagerService = layerManagerService;
 
-    	this._getLayers();
+        this._getLayers();
     }
 
     $onInit() {
-        let map = this._createMap();
-        this._mapService.setMap(map);
-    }
+        let map = this._mapService.createMap('spaceViewMap', [0, 2000000]);
 
-    _createMap() {
-    	return new Map({
-            target: 'spaceViewMap',
-            layers: [
-                new TileLayer({
-                    source: new BingMaps({
-                        key: 'AnXBanw_ISXuSTWNsbhn2RS7m3lua1M3XTehRuk0Xm3dJT3IlbupeJf_By1I5cGY',
-                        imagerySet: 'Road'
-                    })
-                })
-            ],
-            view: new View({
-                center: [0, 0],
-                zoom: 2.8
+        let baseLayer = new TileLayer({
+            source: new BingMaps({
+                key: 'AnXBanw_ISXuSTWNsbhn2RS7m3lua1M3XTehRuk0Xm3dJT3IlbupeJf_By1I5cGY',
+                imagerySet: 'Road'
             })
         });
+
+        map.addLayer(baseLayer);
+
+        this._mapService.setMap(map, 'baseMap');
+
+        // map.on('pointermove', (event) => {
+        // 	var coordinates = event.coordinate;
+        //     this.positionX = coordinates[0].toFixed(2);
+        //     this.positionY = coordinates[1].toFixed(2);
+        //     this.zoomLevel = map.getView().getZoom();
+
+        //     console.log('X '+ this.positionX)
+        //     console.log('Y '+ this.positionY)
+        //     console.log('Zoom '+ this.zoomLevel)
+        // })
     }
 
     _getLayers() {
-    	this._$http.get('../data/dataCenters.json')
-    		.then((response) => {
-    			this._mapService.setLayers(Object.keys(response.data)[0], response.data);
-    		}, (error) => {
-    			console.log(error);
-    		});
-
-    	this._$http.get('../data/vCenters.json')
-    		.then((response) => {
-    			this._mapService.setLayers(Object.keys(response.data)[0], response.data);
-    		}, (error) => {
-    			console.log(error);
-    		});
-
-    	this._$http.get('../data/clusters.json')
-    		.then((response) => {
-    			this._mapService.setLayers(Object.keys(response.data)[0], response.data);
-    		}, (error) => {
-    			console.log(error);
-    		});
-
-    	this._$http.get('../data/hosts.json')
-    		.then((response) => {
-    			this._mapService.setLayers(Object.keys(response.data)[0], response.data);
-    		}, (error) => {
-    			console.log(error);
-    		});
-
+        this._$http.get('../data/dataCenters.json')
+            .then((response) => {
+                this._mapService.setLayersList(Object.keys(response.data)[0], response.data);
+                this._layerManagerService.addClusterLayer(response.data.dataCenters);
+            }, (error) => {
+                console.log(error);
+            });
     }
 }

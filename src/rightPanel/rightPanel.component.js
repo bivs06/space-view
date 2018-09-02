@@ -1,9 +1,9 @@
-import './header.scss';
-import './header.template.html';
-import coreController from './header.controller';
+import './rightPanel.scss';
+import './rightPanel.template.html';
+import rightPanelController from './rightPanel.controller';
 
 export default {
-	controller: coreController,
-	templateUrl: 'header.template.html',
+	controller: rightPanelController,
+	templateUrl: 'rightPanel.template.html',
 	bindings: {}
 };
