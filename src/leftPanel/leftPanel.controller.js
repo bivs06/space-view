@@ -16,8 +16,6 @@ export default class leftPanelController {
             'performance': 'Performance',
             'availability': 'Availability'
         };
-
-        this.toggleLeftPanel = this.buildToggler();
     }
 
     $onInit() {
@@ -27,12 +25,6 @@ export default class leftPanelController {
             this.prevSelectedAspectElem = this._$element.find('#capacity')[0];
             this.prevSelectedAspectElem.classList.add('selected-aspect');
         });
-    }
-
-    buildToggler() {
-        return () => {
-            this._$mdSidenav('left_panel').toggle();
-        };
     }
 
     onPerspectiveChange(selectedPerspective, event) {

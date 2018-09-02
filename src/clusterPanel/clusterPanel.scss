@@ -34,12 +34,13 @@
 
 	md-sidenav {
 		width: 100%;
+		overflow: hidden;
 		max-width: none;
 	}
 
 	md-content.main {
 	    overflow: hidden;
-	    min-height: calc(100vh - 64px);
+	    min-height: calc(100vh - 88px);
 	    display: flex;
 	}
 

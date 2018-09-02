@@ -1,15 +1,15 @@
 <div class="cluster-panel">
     <md-sidenav class="md-sidenav-right" md-whiteframe="8" md-component-id="cluster_panel" md-disable-backdrop="" md-is-open="false">
         <div ng-cloak>
-                <header>
-                    <md-toolbar>
-                        <space-view-header title="{{'VCenters: London - ' + $ctrl.selectedPerspective}}" object-count="542" show-status="true"></space-view-header>
-                        <md-button ng-click="$ctrl.toggleClusterPanel()" aria-label="close" class="md-icon-button cluster-panel-close-btn">
-                            <md-icon class="material-icons" md-svg-src="../../resources/img/close-24px.svg">close</md-icon>
-                            <md-tooltip md-direction="bottom">close</md-tooltip>
-                        </md-button>
-                    </md-toolbar>
-                </header>
+            <header>
+                <md-toolbar>
+                    <space-view-header title="{{'VCenters: London - ' + $ctrl.selectedPerspective}}" object-count="542" show-status="true"></space-view-header>
+                    <md-button ng-click="$ctrl.toggleClusterPanel()" aria-label="close" class="md-icon-button cluster-panel-close-btn">
+                        <md-icon class="material-icons" md-svg-src="../../resources/img/close-24px.svg">close</md-icon>
+                        <md-tooltip md-direction="bottom">close</md-tooltip>
+                    </md-button>
+                </md-toolbar>
+            </header>
             <content>
                 <md-content class="main">
                     <div id="cluster_panel_left" style="flex: 0.34; background-color: #b2e9b4"></div>
@@ -18,5 +18,31 @@
                 </md-content>
             </content>
         </div>
+        <span style="position: absolute; bottom: 14px; left: 44.5%; font-size: 13px;">
+            <span>
+                <span>
+                    <svg height="17" width="20">
+                        <circle cx="10" cy="10" r="6.5" stroke="transparent" stroke-width="0" fill="#C5CAE9" />
+                    </svg>
+                </span>
+                <span>Windows</span>
+            </span>
+            <span>
+                <span>
+                    <svg height="17" width="20">
+                        <circle cx="10" cy="10" r="6.5" stroke="transparent" stroke-width="0" fill="#8C9EFF" />
+                    </svg>
+                </span>
+                <span>Linux</span>
+            </span>
+            <span>
+                <span>
+                    <svg height="17" width="20">
+                        <circle cx="10" cy="10" r="6.5" stroke="transparent" stroke-width="0" fill="#5C6BC0" />
+                    </svg>
+                </span>
+                <span>KVM</span>
+            </span>
+        </span>
     </md-sidenav>
 </div>

@@ -1,12 +1,8 @@
 <div class="space-view-header">
     <md-toolbar class="md-hue-2">
-        <!-- <md-button class="md-icon-button md-primary" aria-label="Settings">
-            <md-icon md-svg-src="../../resources/img/menu-24px.svg"></md-icon>
-        </md-button> -->
-        <!-- <md-button class="left-toggle-button" ng-click="$ctrl.toggleLeftPanel()">
-	        <md-icon class="material-icons" md-svg-src="../../resources/img/right-24px.svg">Open Panel</md-icon>
-	        <md-tooltip md-direction="bottom">Open Panel</md-tooltip>
-	    </md-button> -->
+        <md-button ng-if="$ctrl.showMenu" class="left-toggle-button" ng-click="$ctrl.toggleLeftPanel()" style="position: absolute; padding: 14px 0px; margin: 0px;">
+	        <md-icon class="material-icons" md-svg-src="../../resources/img/toggle-menu-24px.svg">Open Panel</md-icon>
+	    </md-button>
         <span class="title" ng-bind="$ctrl.title"></span>
         <span ng-if="$ctrl.objectCount" style="position: absolute; right: 16px; margin: 16px; font-size: 28px; margin-right: 80px;"> {{$ctrl.objectCount + ' VMs'}}</span>
     </md-toolbar>

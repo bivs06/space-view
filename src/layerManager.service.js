@@ -3,6 +3,7 @@ import Feature from 'ol/Feature';
 import { Point } from 'ol/geom';
 import { get as getProjections } from 'ol/proj/projections';
 import AnimatedCluster from 'ol-ext/layer/AnimatedCluster';
+import DragPan from 'ol/interaction/DragPan';
 import SelectCluster from 'ol-ext/interaction/SelectCluster';
 import featureAnimation from 'ol-ext/featureanimation/featureAnimation';
 import { Cluster, Vector as VectorSource } from 'ol/source';
@@ -159,17 +160,37 @@ export default class layerManager {
         })
     }
 
+    _removeDrag(map) {
+    	var dragPan;
+        map.getInteractions().forEach((interaction) => {
+            if (interaction instanceof DragPan) {
+                dragPan = interaction;
+            }
+        });
+        
+        if (dragPan) {
+            map.removeInteraction(dragPan);
+        }
+    }
+
     _addUKClusterLayer(totalFeaturesCount) {
+    	if (this._mapService.getMap('clusterBaseLeft')) {
+    		return;
+    	}
         let layersList = this._mapService.getLayersList();
         let UKCluster = layersList.get('dataCenters')['dataCenters'][3]['dataCenters'];
 
         let featuresList = new Array(UKCluster.length),
             projection = getProjections('EPSG:3857'),
-            leftMap = this._mapService.createMap('cluster_panel_left', [0, 0]),
-            middleMap = this._mapService.createMap('cluster_panel_middle', [0, 0]),
-            rightMap = this._mapService.createMap('cluster_panel_right', [0, 0]),
+            leftMap = this._mapService.getMap('clusterBaseLeft') ? this._mapService.getMap('clusterBaseLeft') : this._mapService.createMap('cluster_panel_left', [0, 0]),
+            middleMap = this._mapService.getMap('clusterBaseMiddle') ? this._mapService.getMap('clusterBaseMiddle') : this._mapService.createMap('cluster_panel_middle', [0, 0]),
+            rightMap = this._mapService.getMap('clusterBaseRight') ? this._mapService.getMap('clusterBaseRight') : this._mapService.createMap('cluster_panel_right', [0, 0]),
             x = 3500000,
             y = 3500000;
+
+        this._removeDrag(leftMap);
+        this._removeDrag(middleMap);
+        this._removeDrag(rightMap);
 
         this._mapService.setMap(leftMap, 'clusterBaseLeft');
         leftMap.getView().setMinZoom(3.2);
@@ -194,14 +215,14 @@ export default class layerManager {
             featuresList[i].setGeometryName('labelPoint');
         }
 
-        let leftPanelFeaturesList = featuresList.splice(0, featuresList.length/3),
-        	middlePanelFeaturesList = featuresList.splice(0, featuresList.length/2),
-        	rightPanelFeaturesList = featuresList;
+        let leftPanelFeaturesList = featuresList.splice(0, featuresList.length / 3),
+            middlePanelFeaturesList = featuresList.splice(0, featuresList.length / 2),
+            rightPanelFeaturesList = featuresList;
 
         let leftSource = new VectorSource({
                 features: leftPanelFeaturesList
             }),
-        	middleSource = new VectorSource({
+            middleSource = new VectorSource({
                 features: middlePanelFeaturesList
             }),
             rightSource = new VectorSource({
@@ -234,20 +255,20 @@ export default class layerManager {
 
         // Animated cluster layer
         let leftPanelClusterLayer = new AnimatedCluster({
-            name: 'My Cluster',
-            source: leftClusterSource,
-            style: this._getUKClusterStyle.bind(this)
-        }),
-        middlePanelClusterLayer = new AnimatedCluster({
-            name: 'My Cluster',
-            source: middleClusterSource,
-            style: this._getUKClusterStyle.bind(this)
-        }),
-        rightPanelClusterLayer = new AnimatedCluster({
-            name: 'My Cluster',
-            source: rightClusterSource,
-            style: this._getUKClusterStyle.bind(this)
-        });
+                name: 'My Cluster',
+                source: leftClusterSource,
+                style: this._getUKClusterStyle.bind(this)
+            }),
+            middlePanelClusterLayer = new AnimatedCluster({
+                name: 'My Cluster',
+                source: middleClusterSource,
+                style: this._getUKClusterStyle.bind(this)
+            }),
+            rightPanelClusterLayer = new AnimatedCluster({
+                name: 'My Cluster',
+                source: rightClusterSource,
+                style: this._getUKClusterStyle.bind(this)
+            });
 
         leftMap.addLayer(leftPanelClusterLayer);
         this._addInteraction(leftMap, this._getUKClusterStyle.bind(this));
@@ -317,7 +338,7 @@ export default class layerManager {
         // }
         // Feature style
         if (size === 1) {
-        	return this._featureStyle(feature);
+            return this._featureStyle(feature);
         } else { // ClusterStyle
             let data = [1, 2, 3];
             for (let i = 0, f; f = features[i]; i++) data[f.get('type')]++;
@@ -327,7 +348,7 @@ export default class layerManager {
                 style = styleCache[data.join(',')] = new Style({
                     image: new Chart({
                         type: 'pie',
-                        radius: (radius*2),
+                        radius: (radius * 2),
                         data: data,
                         colors: ['#5C6BC0', '#C5CAE9', '#8C9EFF'],
                         rotateWithView: true,
@@ -336,13 +357,13 @@ export default class layerManager {
                             width: 0
                         })
                     }),
-		            text: new Text({
-		            	font: '20px sans-serif',
-		                text: size.toString(),
-		                fill: new Fill({
-		                    color: '#fff'
-		                })
-		            })
+                    text: new Text({
+                        font: '20px sans-serif',
+                        text: size.toString(),
+                        fill: new Fill({
+                            color: '#fff'
+                        })
+                    })
 
                 });
             }
@@ -375,13 +396,13 @@ export default class layerManager {
                             width: 1
                         })
                     }),
-		            text: new Text({
-		            	font: '20px sans-serif',
-		                text: size.toString(),
-		                fill: new Fill({
-		                    color: '#ffffff'
-		                })
-		            })
+                    text: new Text({
+                        font: '20px sans-serif',
+                        text: size.toString(),
+                        fill: new Fill({
+                            color: '#ffffff'
+                        })
+                    })
                 });
             }
             return [style];

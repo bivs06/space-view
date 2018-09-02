@@ -8,6 +8,7 @@ export default {
 	bindings: {
 		title: '@?',
 		showStatus: '<?',
-		objectCount: '@?'
+		objectCount: '@?',
+		showMenu: '<?'
 	}
 };
