@@ -21,7 +21,7 @@ export default class layerManager {
 
         this.statusColor = {
             'cpu': {
-                'low': '#2E7D32',
+                'low': '#43A047',
                 'medium': '#FFA726',
                 'high': '#D50000'
             },
@@ -140,7 +140,6 @@ export default class layerManager {
                 rightPanel.toggle();
 
                 let feature = cluster[0];
-                // $(".infos").html("One feature selected...<br/>(id=" + feature.get('id') + ")");
             } else if (cluster.length > 60) {
                 let leftPanel = this._$mdSidenav('left_panel'),
                     rightPanel = this._$mdSidenav('right_panel'),
@@ -154,7 +153,6 @@ export default class layerManager {
         })
 
         selectCluster.getFeatures().on(['remove'], (e) => {
-            $(".infos").html("");
             let rightPanel = this._$mdSidenav('right_panel');
             rightPanel.isOpen() ? rightPanel.toggle() : null;
         })
@@ -185,8 +183,8 @@ export default class layerManager {
             leftMap = this._mapService.getMap('clusterBaseLeft') ? this._mapService.getMap('clusterBaseLeft') : this._mapService.createMap('cluster_panel_left', [0, 0]),
             middleMap = this._mapService.getMap('clusterBaseMiddle') ? this._mapService.getMap('clusterBaseMiddle') : this._mapService.createMap('cluster_panel_middle', [0, 0]),
             rightMap = this._mapService.getMap('clusterBaseRight') ? this._mapService.getMap('clusterBaseRight') : this._mapService.createMap('cluster_panel_right', [0, 0]),
-            x = 3500000,
-            y = 3500000;
+            x = 2200000,
+            y = 3200000;
 
         this._removeDrag(leftMap);
         this._removeDrag(middleMap);
@@ -194,7 +192,7 @@ export default class layerManager {
 
         this._mapService.setMap(leftMap, 'clusterBaseLeft');
         leftMap.getView().setMinZoom(3.2);
-        leftMap.getView().setMaxZoom(3.8);
+        leftMap.getView().setMaxZoom(3.2);
         this._mapService.setMap(middleMap, 'clusterBaseMiddle');
         middleMap.getView().setMinZoom(3.2);
         middleMap.getView().setMaxZoom(3.8);
@@ -215,9 +213,9 @@ export default class layerManager {
             featuresList[i].setGeometryName('labelPoint');
         }
 
-        let leftPanelFeaturesList = featuresList.splice(0, featuresList.length / 3),
-            middlePanelFeaturesList = featuresList.splice(0, featuresList.length / 2),
-            rightPanelFeaturesList = featuresList;
+        let leftPanelFeaturesList = featuresList.splice(0, featuresList.length / 2),
+            rightPanelFeaturesList = featuresList.splice(0, featuresList.length / 4),
+            middlePanelFeaturesList = featuresList;
 
         let leftSource = new VectorSource({
                 features: leftPanelFeaturesList
@@ -230,7 +228,7 @@ export default class layerManager {
             });
 
         let leftClusterSource = new Cluster({
-                distance: 50,
+                distance: 90,
                 source: leftSource,
                 projection: projection
             }),
@@ -297,18 +295,17 @@ export default class layerManager {
             clustorFillColor = featuresList[0].get('status');
         }
 
+        let radius = size < 5 ? 12 : size <10 ? 15 : size < 20 ? 20 : size < 1000 ? 30 : 40;
+
         return [new Style({
             image: new FontSymbol({
                 form: 'poi',
                 gradient: false,
-                // glyph: size.toString(),
                 fontSize: 1,
-                radius: 20,
-                //offsetX: -15,
+                radius: radius,
                 rotation: 0,
                 rotateWithView: false,
                 offsetY: false,
-                // color: 'blue',
                 fill: new Fill({
                     color: clustorFillColor
                 }),

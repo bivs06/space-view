@@ -14,11 +14,6 @@ const MODULE_NAME = 'spaceView',
 
 let app = angular.module(MODULE_NAME, appDependencies);
 
-// angular.element(document)
-// 	.ready(() => {
-// 		angular.bootstrap('body', [MODULE_NAME]);
-// 	});
-
 let videoElem = document.getElementById('space_view_video');
 
 videoElem.onended = () => {
