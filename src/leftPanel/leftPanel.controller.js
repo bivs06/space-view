@@ -12,7 +12,7 @@ export default class leftPanelController {
         this.perspectives = {
             'cost': 'Cost',
             'capacity': 'Capacity',
-            'compliance': 'compliance',
+            'compliance': 'Compliance',
             'performance': 'Performance',
             'availability': 'Availability'
         };
