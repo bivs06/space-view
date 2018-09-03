@@ -28,7 +28,7 @@ export default class layerManager {
             'capacity': {
                 'low': '#D50000',
                 'medium': '#FFA726',
-                'high': '#2E7D32'
+                'high': '#43A047'
             }
         };
     }
@@ -47,6 +47,8 @@ export default class layerManager {
                     'name': featureObj.name,
                     'status': this.statusColor[this.selectedPerspective][featureObj[this.selectedPerspective]],
                     'featureCount': parseInt(featureObj.featureCount),
+                    'cpu': featureObj.cpu,
+                    'capacity': featureObj.capacity,
                     'labelPoint': new Point([parseInt(featureObj.latitude), parseInt(featureObj.longitude)])
                 });
                 feature.setGeometryName('labelPoint');
@@ -116,8 +118,8 @@ export default class layerManager {
                     return [
                         new Style({
                             image: new Circle({
-                                stroke: new Stroke({ color: "rgba(0,0,192,0.5)", width: 8 }),
-                                fill: new Fill({ color: "#FF0266" }),
+                                stroke: new Stroke({ color: "#5C6BC0", width: 5 }),
+                                fill: new Fill({ color: "#BBDEFB" }),
                                 radius: 10
                             })
                         })
@@ -180,9 +182,9 @@ export default class layerManager {
 
         let featuresList = new Array(UKCluster.length),
             projection = getProjections('EPSG:3857'),
-            leftMap = this._mapService.getMap('clusterBaseLeft') ? this._mapService.getMap('clusterBaseLeft') : this._mapService.createMap('cluster_panel_left', [0, 0]),
-            middleMap = this._mapService.getMap('clusterBaseMiddle') ? this._mapService.getMap('clusterBaseMiddle') : this._mapService.createMap('cluster_panel_middle', [0, 0]),
-            rightMap = this._mapService.getMap('clusterBaseRight') ? this._mapService.getMap('clusterBaseRight') : this._mapService.createMap('cluster_panel_right', [0, 0]),
+            leftMap = this._mapService.getMap('clusterBaseLeft') ? this._mapService.getMap('clusterBaseLeft') : this._mapService.createMap('cluster_panel_left', [900000, 900000]),
+            middleMap = this._mapService.getMap('clusterBaseMiddle') ? this._mapService.getMap('clusterBaseMiddle') : this._mapService.createMap('cluster_panel_middle', [900000, 900000]),
+            rightMap = this._mapService.getMap('clusterBaseRight') ? this._mapService.getMap('clusterBaseRight') : this._mapService.createMap('cluster_panel_right', [900000, 900000]),
             x = 2200000,
             y = 3200000;
 
@@ -295,7 +297,9 @@ export default class layerManager {
             clustorFillColor = featuresList[0].get('status');
         }
 
-        let radius = size < 5 ? 12 : size <10 ? 15 : size < 20 ? 20 : size < 1000 ? 30 : 40;
+        let radius = size < 5 ? 12 : size < 10 ? 15 : size < 20 ? 20 : size < 1000 ? 30 : 40,
+        	textOffsetY = size < 10 ? -4 : size < 20 ? -12 : size < 1000 ? -25 : -52.5,
+        	clusterOffsetY = size < 10 ? -2 : size < 20 ? -6 : size < 1000 ? -15 : -40;
 
         return [new Style({
             image: new FontSymbol({
@@ -305,20 +309,18 @@ export default class layerManager {
                 radius: radius,
                 rotation: 0,
                 rotateWithView: false,
-                offsetY: false,
+                offsetY: clusterOffsetY,
                 fill: new Fill({
                     color: clustorFillColor
-                }),
-                stroke: new Stroke({
-                    color: 'red',
-                    width: 1
                 })
             }),
             text: new Text({
+            	font: '11px sans-serif',
                 text: size.toString(),
                 fill: new Fill({
                     color: '#fff'
-                })
+                }),
+                offsetY: textOffsetY
             })
         })]
     };
@@ -355,10 +357,10 @@ export default class layerManager {
                         })
                     }),
                     text: new Text({
-                        font: '20px sans-serif',
+                        font: '16px sans-serif',
                         text: size.toString(),
                         fill: new Fill({
-                            color: '#fff'
+                            color: '#000000'
                         })
                     })
 
@@ -383,14 +385,10 @@ export default class layerManager {
                 style = styleCache[type] = new Style({
                     image: new FontSymbol({
                         form: 'circle',
-                        radius: 20,
+                        radius: 15,
                         color: color,
                         fill: new Fill({
                             color: color
-                        }),
-                        stroke: new Stroke({
-                            color: '#fff',
-                            width: 1
                         })
                     }),
                     text: new Text({
@@ -420,12 +418,10 @@ export default class layerManager {
         };
 
         featuresList.forEach((featureObj) => {
-            count[featureObj[this.selectedPerspective]]++;
+            count[featureObj.get(this.selectedPerspective)]++;
         });
 
-        let avg = (count.low + count.medium + count.high) / 3;
-
-        return (avg < 3) ? 'low' : (avg >= 8) ? 'high' : 'medium';
+        return (count.high > featuresList.length/3) ? 'high' : (count.medium > featuresList.length/3) ? 'medium' : 'low';
     }
 
     _getFeaturesFromLayerObj(featuresList) {
@@ -440,6 +436,8 @@ export default class layerManager {
                     'name': featureObj.name,
                     'status': this.statusColor[this.selectedPerspective][featureObj[this.selectedPerspective]],
                     'featureCount': parseInt(featureObj.featureCount),
+                    'cpu': featureObj.cpu,
+                    'capacity': featureObj.capacity,
                     'labelPoint': new Point([parseInt(featureObj.latitude), parseInt(featureObj.longitude)])
                 });
                 tempFeature.setGeometryName('labelPoint');

@@ -43,7 +43,14 @@ export default class leftPanelController {
         event.currentTarget.classList.add('selected-aspect');
         this.prevSelectedAspectElem = event.currentTarget;
 
-        this._mapService.getMap('baseMap').getLayers().getArray()[1].getSource().changed();
-        this._mapService.getMap('clusterBase') ? this._mapService.getMap('clusterBase').getLayers().getArray()[0].getSource().changed() : null;
+        let baseMap = this._mapService.getMap('baseMap');
+
+        baseMap.getInteractions().pop();
+        baseMap.getLayers().getArray()[1].getSource().changed();
+        this._mapService.getMap('baseMap').getLayers().getArray().pop();
+        this._layerManagerService.addClusterLayer(this._mapService.getLayersList().get('dataCenters').dataCenters);
+        this._mapService.getMap('clusterBaseLeft') ? this._mapService.getMap('clusterBaseLeft').getLayers().getArray()[0].getSource().changed() : null;
+        this._mapService.getMap('clusterBaseMiddle') ? this._mapService.getMap('clusterBaseMiddle').getLayers().getArray()[0].getSource().changed() : null;
+        this._mapService.getMap('clusterBaseRight') ? this._mapService.getMap('clusterBaseRight').getLayers().getArray()[0].getSource().changed() : null;
     }
 }
