@@ -116,7 +116,7 @@ export default class layerManager {
                     return [
                         new Style({
                             image: new Circle({
-                                stroke: new Stroke({ color: "rgba(0,0,192,0.5)", width: 3 }),
+                                stroke: new Stroke({ color: "rgba(0,0,192,0.5)", width: 8 }),
                                 fill: new Fill({ color: "#FF0266" }),
                                 radius: 10
                             })
